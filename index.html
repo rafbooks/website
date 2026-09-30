@@ -53,23 +53,36 @@
     </button>
     <audio id="rafAudio" src="assets/voice.mp3" preload="metadata"></audio>
 
-    <!-- جعبه رنگ و کنترل نقاشی -->
+    <!-- پالت نقاشی + ابزار -->
     <div class="paint-tools">
-      <div class="colors" id="colors">
-        <button data-color="#e74c3c" style="background:#e74c3c"></button>
-        <button data-color="#f39c12" style="background:#f39c12"></button>
-        <button data-color="#3498db" style="background:#3498db"></button>
-        <button data-color="#27ae60" style="background:#27ae60"></button>
-        <button data-color="#9b59b6" style="background:#9b59b6"></button>
-        <button data-color="#e91e63" style="background:#e91e63"></button>
-        <button data-color="#1a1a1a" style="background:#1a1a1a"></button>
+      <div class="palette">
+        <div class="palette-body">
+          <div class="colors" id="colors">
+            <button data-color="#e74c3c" style="background:#e74c3c" title="قرمز"></button>
+            <button data-color="#f39c12" style="background:#f39c12" title="نارنجی"></button>
+            <button data-color="#f1c40f" style="background:#f1c40f" title="زرد"></button>
+            <button data-color="#27ae60" style="background:#27ae60" title="سبز"></button>
+            <button data-color="#3498db" style="background:#3498db" title="آبی"></button>
+            <button data-color="#9b59b6" style="background:#9b59b6" title="بنفش"></button>
+            <button data-color="#e91e63" style="background:#e91e63" title="صورتی"></button>
+            <button data-color="#1a1a1a" style="background:#1a1a1a" title="مشکی"></button>
+          </div>
+        </div>
       </div>
-      <button class="tool-btn" id="eraserBtn">پاک‌کن</button>
-      <button class="tool-btn" id="clearBtn">پاک کردن همه</button>
+
+      <div class="tool-buttons">
+        <button class="tool-btn" id="eraserBtn">پاک‌کن</button>
+        <button class="tool-btn" id="clearBtn">پاک کردن همه</button>
+      </div>
     </div>
 
     <p class="hint">با قلم‌مو روی صفحه نقاشی کن • هر کلیک رنگ می‌پاشد</p>
 
+  </div>
+
+  <!-- امضای مدیر -->
+  <div class="manager-credit">
+    مدیریت نشر رف — دکتر کیوان خلیل‌نژاد
   </div>
 
   <script src="script.js"></script>
