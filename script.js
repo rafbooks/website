@@ -169,6 +169,7 @@ const translations = {
     subtitle: "دفترهای طراحی و نقاشی",
     title: "دفترهایی برای دیدن، کشیدن و ماندن",
     desc: "دفترهایی برای ثبت لحظه‌ها، تمرین خلاقیت و همراهی در مسیر ایده‌ها تا ماندگارترین شکل ممکن.",
+    manifesto: "ما نسل تازه‌ایم.\nدیگر همه‌چیز قرار نیست پشت ویترین یک سایت بماند.\n\nما دفترهای طراحی‌مان را جایی می‌بریم که زنده‌تر است،\nنزدیک‌تر است و هر روز با ما نفس می‌کشد.\n\nدر کانال تلگرام نشر رف می‌توانی دفترها را از نزدیک ببینی؛\nصفحه‌ها، کاغذ، رنگ‌ها، جزئیات و حال‌وهوای واقعی هر طراحی را ورق بزنی؛\nحتی قبل از اینکه تصمیم به خرید بگیری.\n\nو وقتی دفتر مورد علاقه‌ات را پیدا کردی،\nلازم نیست از اینجا به جای دیگری بروی.\n\nربات تلگرامی نشر رف برای همینجاست؛\nبرای دیدن محصولات، انتخاب، سفارش و خرید،\nساده و مستقیم، درست در همان جایی که دفترهایت را پیدا کرده‌ای.\n\nما فقط کتاب و دفتر طراحی نمی‌فروشیم؛\nداریم شیوه‌ی تازه‌ای برای دیدن، انتخاب کردن و خریدن می‌سازیم.\n\nسایت، ویترین ماست.\nکانال، دفتر طراحی ماست.\nو ربات، راه خرید شماست.\n\nبه دنیای تازه‌ی نشر رف خوش آمدید.",
     btn_channel: "کانال تلگرام",
     btn_bot: "ربات تلگرام",
     btn_manager: "ارتباط با مدیر",
@@ -183,6 +184,7 @@ const translations = {
     subtitle: "Design & Painting Notebooks",
     title: "Notebooks for seeing, drawing and lasting",
     desc: "Notebooks for capturing moments, practicing creativity, and walking with ideas until they take their most lasting form.",
+    manifesto: "We are a new generation.\nNot everything is meant to stay behind a website showcase.\n\nWe take our design notebooks somewhere more alive,\ncloser, and breathing with us every day.\n\nIn the Raf Publishing Telegram channel, you can see the notebooks up close;\nflip through the pages, the paper, the colors, the details and the real atmosphere of each design;\neven before you decide to buy.\n\nAnd when you find the notebook you love,\nyou don’t need to go anywhere else.\n\nThe Raf Publishing Telegram bot is right here;\nfor browsing products, choosing, ordering and buying,\nsimple and direct, exactly where you discovered your notebooks.\n\nWe don’t just sell books and design notebooks;\nwe are creating a new way of seeing, choosing and buying.\n\nThe website is our showcase.\nThe channel is our design studio.\nAnd the bot is your path to purchase.\n\nWelcome to the new world of Raf Publishing.",
     btn_channel: "Telegram Channel",
     btn_bot: "Telegram Bot",
     btn_manager: "Contact Manager",
@@ -197,6 +199,7 @@ const translations = {
     subtitle: "دفاتر التصميم والرسم",
     title: "دفاتر للرؤية والرسم والبقاء",
     desc: "دفاتر لتسجيل اللحظات، وممارسة الإبداع، ومرافقة الأفكار حتى تأخذ أكثر أشكالها ديمومة.",
+    manifesto: "نحن جيل جديد.\nلم يعد كل شيء مضطراً أن يبقى خلف واجهة موقع إلكتروني.\n\nنأخذ دفاتر التصميم الخاصة بنا إلى مكان أكثر حياةً،\nأقرب إلينا، ويتنفس معنا كل يوم.\n\nفي قناة تليجرام نشر رف يمكنك رؤية الدفاتر عن قرب؛\nتصفح الصفحات، والورق، والألوان، والتفاصيل، والأجواء الحقيقية لكل تصميم؛\nحتى قبل أن تقرر الشراء.\n\nوعندما تجد الدفتر الذي تحبه،\nلست بحاجة إلى الذهاب إلى مكان آخر.\n\nبوت تليجرام نشر رف موجود لهذا الغرض؛\nلتصفح المنتجات، والاختيار، والطلب، والشراء،\nببساطة ومباشرة، في نفس المكان الذي اكتشفت فيه دفاترك.\n\nنحن لا نبيع الكتب ودفاتر التصميم فحسب؛\nبل نصنع طريقة جديدة للرؤية والاختيار والشراء.\n\nالموقع هو واجهتنا.\nالقناة هي مرسمنا.\nوالبوت هو طريقك للشراء.\n\nمرحباً بكم في عالم نشر رف الجديد.",
     btn_channel: "قناة تليجرام",
     btn_bot: "بوت تليجرام",
     btn_manager: "التواصل مع المدير",
@@ -237,13 +240,16 @@ function setLanguage(lang) {
 
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.getAttribute("data-i18n");
-    if (t[key]) el.textContent = t[key];
+    if (t[key]) {
+      // برای متن‌های چندخطی از innerText استفاده می‌کنیم تا \n حفظ بشه
+      el.innerText = t[key];
+    }
   });
 
   langBtn.textContent = t.langName;
   localStorage.setItem("raf_lang", lang);
 
-  // آپدیت لینک واتساپ با پیام مناسب هر زبان
+  // آپدیت لینک واتساپ
   const managerBtn = document.querySelector(".btn-manager");
   if (managerBtn) {
     const phone = "989121455751";
