@@ -4,80 +4,204 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#17130f">
-  <meta name="description" content="نشر رف — دفترها و لوازم طراحی و نقاشی">
-  <title>نشر رف | دفترها و لوازم طراحی و نقاشی</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>نشر رف | کتاب، هنر و اندیشه</title>
+  <meta name="description" content="نشر رف؛ مجموعه‌ای برای کتاب، دفتر، طراحی و محصولات فرهنگی و هنری.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="page">
-    <header class="topbar">
-      <div class="brand-mini">نشر رف</div>
-      <nav class="languages" aria-label="Language">
-        <button class="lang active" data-lang="fa">فارسی</button>
-        <button class="lang" data-lang="ar">العربية</button>
-        <button class="lang" data-lang="en">English</button>
+  <div class="page-noise" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="نشر رف">
+        <span class="brand-mark">ر</span>
+        <span class="brand-text">
+          <strong>نشر رف</strong>
+          <small>کتاب · هنر · اندیشه</small>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="منوی اصلی">
+        <a href="#about">درباره رف</a>
+        <a href="#collection">محصولات</a>
+        <a href="#sound">صدا</a>
+        <a href="#contact">ارتباط</a>
       </nav>
-    </header>
 
+      <button class="menu-toggle" type="button" aria-label="باز کردن منو" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
     <section class="hero">
-      <div class="content">
-        <div class="book-mark">♡</div>
-        <div class="eyebrow" data-i18n="eyebrow">دفترها و لوازم طراحی و نقاشی</div>
-        <h1 data-i18n="title">نشر رف</h1>
-        <p class="lead" data-i18n="lead">
-          بیشتر از یک دفتر ساده...<br>
-          جایی برای فکرها، ایده‌ها و<br>
-          تمام آنچه در ذهن زیباتان می‌گذرد.
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> یک جای کوچک برای چیزهای ماندگار</p>
+        <h1>کتاب‌ها را<br><em>دوباره</em> ببین.</h1>
+        <p class="hero-lead">
+          نشر رف جایی‌ست برای کتاب، طراحی و ایده‌هایی که دوست داریم
+          آهسته خوانده شوند و مدت بیشتری بمانند.
         </p>
+        <div class="hero-actions">
+          <a class="btn btn-dark" href="#collection">دیدن مجموعه <span>←</span></a>
+          <a class="text-link" href="#about">رف را بشناسید <span>↘</span></a>
+        </div>
+      </div>
 
-        <div class="actions">
-          <a class="btn btn-primary" href="https://t.me/rafbooksbot" target="_blank" rel="noopener">
-            <span class="telegram">➤</span>
-            <span>
-              <strong data-i18n="bot">بات تلگرام</strong>
-              <small data-i18n="botSub">با ما در ارتباط باشید</small>
-            </span>
-          </a>
+      <div class="hero-art" aria-label="جلد کتاب">
+        <div class="paper paper-back"></div>
+        <div class="paper paper-mid"></div>
+        <div class="book-hero">
+          <div class="book-spine"></div>
+          <div class="book-cover">
+            <span class="cover-kicker">RAF / EDITIONS</span>
+            <strong>رف</strong>
+            <span class="cover-line"></span>
+            <small>برای چیزهایی که<br>ارزش ماندن دارند</small>
+            <span class="cover-year">۱۴۰۵</span>
+          </div>
+        </div>
+        <span class="art-note note-one">01 — READ</span>
+        <span class="art-note note-two">SLOWLY</span>
+      </div>
+    </section>
 
-          <a class="btn btn-outline" href="https://t.me/rafbooks" target="_blank" rel="noopener">
-            <span class="telegram">➤</span>
-            <span>
-              <strong data-i18n="channel">کانال تلگرام</strong>
-              <small data-i18n="channelSub">به کانال ما بپیوندید</small>
-            </span>
-          </a>
+    <section class="manifesto" id="about">
+      <div class="section-label">01 / درباره رف</div>
+      <div class="manifesto-grid">
+        <h2>هر چیزی که ارزش<br><em>خواندن</em> دارد،<br>ارزش ماندن هم دارد.</h2>
+        <div class="manifesto-copy">
+          <p>
+            ما در نشر رف به کتاب فقط به‌عنوان یک محصول نگاه نمی‌کنیم.
+            کتاب برای ما یک تجربه است؛ چیزی که می‌شود لمسش کرد، ورق زد،
+            با خود برد و سال‌ها بعد دوباره به آن برگشت.
+          </p>
+          <p>
+            از کتاب و دفتر تا طراحی و محصولات فرهنگی، انتخاب‌هایمان را
+            با وسواس و علاقه کنار هم می‌گذاریم.
+          </p>
+          <a class="arrow-link" href="#collection">مجموعه رف <span>↙</span></a>
         </div>
       </div>
     </section>
 
-    <div class="music">
-      <button id="musicToggle" class="music-btn" aria-label="Play music">▶</button>
-      <div class="music-info">
-        <strong data-i18n="musicTitle">معرفی کوتاه نشر رف</strong>
-        <span data-i18n="musicSub">برای آشنایی بیشتر با ما</span>
+    <section class="collection" id="collection">
+      <div class="section-head">
+        <div>
+          <div class="section-label">02 / مجموعه</div>
+          <h2>چیزهایی برای<br><em>خواندن و ساختن</em></h2>
+        </div>
+        <p>انتخاب‌هایی محدود، ساده و با دقت.</p>
       </div>
-      <div class="music-line"><span id="musicProgress"></span></div>
-      <span class="music-note">♫</span>
-      <audio id="audio" preload="auto">
-        <source src="assets/voice.mp3" type="audio/mpeg">
-      </audio>
-    </div>
 
-    <footer>
-      <div class="footer-line"></div>
-      <p data-i18n="footer">با هر صفحه، یک قدم به سمت ایده‌های بزرگ‌تر</p>
-      <div class="footer-items">
-        <span data-i18n="notes">دفترهای یادداشت</span>
-        <span data-i18n="design">دفترهای طراحی</span>
-        <span data-i18n="drawing">دفترهای نقاشی</span>
+      <div class="product-grid">
+        <article class="product-card featured">
+          <div class="product-visual visual-book">
+            <span class="product-number">01</span>
+            <div class="mini-book">
+              <span>RAF</span>
+              <strong>کتاب</strong>
+              <small>خواندن، مکث، دوباره دیدن</small>
+            </div>
+          </div>
+          <div class="product-info">
+            <span class="tag">BOOK</span>
+            <h3>کتاب‌های منتخب</h3>
+            <p>برای خواندن‌های آرام و کشف دوباره.</p>
+            <a href="#contact">اطلاعات بیشتر <span>←</span></a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-visual visual-notebook">
+            <span class="product-number">02</span>
+            <div class="notebook">
+              <span>NOTE / 01</span>
+              <strong>یادداشت</strong>
+              <i></i>
+            </div>
+          </div>
+          <div class="product-info">
+            <span class="tag">PAPER</span>
+            <h3>دفتر و نوشت‌افزار</h3>
+            <p>برای ایده‌هایی که هنوز شکل نگرفته‌اند.</p>
+            <a href="#contact">اطلاعات بیشتر <span>←</span></a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-visual visual-art">
+            <span class="product-number">03</span>
+            <div class="art-card">
+              <span>RAF</span>
+              <b>ART</b>
+              <small>DESIGN / PRINT</small>
+            </div>
+          </div>
+          <div class="product-info">
+            <span class="tag">ART</span>
+            <h3>طراحی و هنر</h3>
+            <p>چیزهای کوچک برای فضاهای شخصی‌تر.</p>
+            <a href="#contact">اطلاعات بیشتر <span>←</span></a>
+          </div>
+        </article>
       </div>
-      <div class="love" data-i18n="love">با عشق برای رویاهایتان ♡</div>
-    </footer>
+    </section>
+
+    <section class="sound-section" id="sound">
+      <div class="sound-art">
+        <span class="sound-big">صدا</span>
+        <span class="sound-index">03 / LISTEN</span>
+      </div>
+      <div class="sound-content">
+        <div class="section-label">03 / شنیدن</div>
+        <h2>بعضی چیزها را<br><em>باید شنید.</em></h2>
+        <p>اگر نسخه صوتی یا روایت‌های نشر رف را دنبال می‌کنید، از اینجا همراه شوید.</p>
+        <div class="audio-player">
+          <button class="play-button" type="button" aria-label="پخش صدا">▶</button>
+          <div class="audio-meta">
+            <strong>روایت رف</strong>
+            <span>برای شنیدن، دکمه پخش را بزنید</span>
+          </div>
+          <div class="audio-progress"><i></i></div>
+        </div>
+        <audio id="rafAudio" preload="metadata">
+          <source src="voice.mp3" type="audio/mpeg">
+        </audio>
+        <a class="telegram-link" href="https://t.me/" target="_blank" rel="noopener">رف در تلگرام <span>↗</span></a>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="section-label">04 / ارتباط</div>
+      <div class="contact-grid">
+        <h2>اگر کتابی<br><em>مانده است،</em><br>به ما بگویید.</h2>
+        <div>
+          <p>برای اطلاع از محصولات، انتشارهای جدید و خبرهای نشر رف، از طریق تلگرام با ما در ارتباط باشید.</p>
+          <a class="contact-button" href="https://t.me/" target="_blank" rel="noopener">
+            <span>ارتباط در تلگرام</span><b>↗</b>
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
-  <div id="toast" class="toast"></div>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <a class="brand footer-brand" href="#top">
+        <span class="brand-mark">ر</span>
+        <span class="brand-text"><strong>نشر رف</strong><small>کتاب · هنر · اندیشه</small></span>
+      </a>
+      <p>برای چیزهایی که ارزش ماندن دارند.</p>
+      <a href="#top" class="back-top">بازگشت به بالا ↑</a>
+    </div>
+    <div class="footer-bottom">
+      <span>© ۱۴۰۵ نشر رف</span>
+      <span>RAF / EDITIONS</span>
+    </div>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
