@@ -14,8 +14,7 @@ function updateClock() {
   document.getElementById("clockTime").textContent = toFa(`${h}:${m}:${s}`);
 
   // تاریخ میلادی
-  const gOptions = { year: "numeric", month: "numeric", day: "numeric" };
-  const gDate = tehran.toLocaleDateString("en-CA", gOptions); // 2025-09-30
+  const gDate = tehran.toLocaleDateString("en-CA"); // مثلا 2025-09-30
   document.getElementById("gregorianDate").textContent = gDate;
 
   // تاریخ شمسی
@@ -80,13 +79,19 @@ document.querySelectorAll(".colors button").forEach(btn => {
     btn.classList.add("active");
     currentColor = btn.dataset.color;
     isEraser = false;
+    brush.textContent = "🖌️";
+    brush.style.fontSize = "24px";
   });
 });
 
+// دکمه پاک‌کن
 document.getElementById("eraserBtn").addEventListener("click", () => {
   isEraser = true;
+  brush.textContent = "🧽";
+  brush.style.fontSize = "26px";
 });
 
+// پاک کردن همه
 document.getElementById("clearBtn").addEventListener("click", () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 });
@@ -103,7 +108,7 @@ function startDraw(e) {
 function draw(e) {
   if (!drawing) return;
   const pos = getPos(e);
-  ctx.lineWidth = isEraser ? 20 : brushSize;
+  ctx.lineWidth = isEraser ? 22 : brushSize;
   ctx.lineCap = "round";
   ctx.strokeStyle = isEraser ? "#fdf8f3" : currentColor;
   ctx.lineTo(pos.x, pos.y);
@@ -172,7 +177,7 @@ function animateParticles() {
 }
 animateParticles();
 
-// ===================== قلم‌موی موس =====================
+// ===================== قلم‌مو / پاک‌کن موس =====================
 const brush = document.createElement("div");
 brush.className = "brush-cursor";
 brush.textContent = "🖌️";
