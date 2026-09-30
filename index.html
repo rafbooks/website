@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#17130f">
+  <meta name="description" content="نشر رف — دفترها و لوازم طراحی و نقاشی">
+  <title>نشر رف | دفترها و لوازم طراحی و نقاشی</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <div class="brand-mini">نشر رف</div>
+      <nav class="languages" aria-label="Language">
+        <button class="lang active" data-lang="fa">فارسی</button>
+        <button class="lang" data-lang="ar">العربية</button>
+        <button class="lang" data-lang="en">English</button>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="content">
+        <div class="book-mark">♡</div>
+        <div class="eyebrow" data-i18n="eyebrow">دفترها و لوازم طراحی و نقاشی</div>
+        <h1 data-i18n="title">نشر رف</h1>
+        <p class="lead" data-i18n="lead">
+          بیشتر از یک دفتر ساده...<br>
+          جایی برای فکرها، ایده‌ها و<br>
+          تمام آنچه در ذهن زیباتان می‌گذرد.
+        </p>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="https://t.me/rafbooksbot" target="_blank" rel="noopener">
+            <span class="telegram">➤</span>
+            <span>
+              <strong data-i18n="bot">بات تلگرام</strong>
+              <small data-i18n="botSub">با ما در ارتباط باشید</small>
+            </span>
+          </a>
+
+          <a class="btn btn-outline" href="https://t.me/rafbooks" target="_blank" rel="noopener">
+            <span class="telegram">➤</span>
+            <span>
+              <strong data-i18n="channel">کانال تلگرام</strong>
+              <small data-i18n="channelSub">به کانال ما بپیوندید</small>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div class="music">
+      <button id="musicToggle" class="music-btn" aria-label="Play music">▶</button>
+      <div class="music-info">
+        <strong data-i18n="musicTitle">معرفی کوتاه نشر رف</strong>
+        <span data-i18n="musicSub">برای آشنایی بیشتر با ما</span>
+      </div>
+      <div class="music-line"><span id="musicProgress"></span></div>
+      <span class="music-note">♫</span>
+      <audio id="audio" preload="auto">
+        <source src="assets/voice.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+
+    <footer>
+      <div class="footer-line"></div>
+      <p data-i18n="footer">با هر صفحه، یک قدم به سمت ایده‌های بزرگ‌تر</p>
+      <div class="footer-items">
+        <span data-i18n="notes">دفترهای یادداشت</span>
+        <span data-i18n="design">دفترهای طراحی</span>
+        <span data-i18n="drawing">دفترهای نقاشی</span>
+      </div>
+      <div class="love" data-i18n="love">با عشق برای رویاهایتان ♡</div>
+    </footer>
+  </main>
+  <div id="toast" class="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+*{box-sizing:border-box}
+:root{--cream:#f7e6cf;--gold:#e9b86e;--dark:#17130f;--blue:#159bea}
+html,body{margin:0;min-height:100%;font-family:Vazirmatn,system-ui,sans-serif;background:#17130f;color:#fff}
+body{overflow-x:hidden}
+.page{min-height:100vh;position:relative;background:
+linear-gradient(180deg,rgba(14,10,7,.34),rgba(14,10,7,.48)),
+url("assets/background.png") center top/cover fixed no-repeat}
+.page:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 58%,rgba(9,7,5,.92) 90%);pointer-events:none}
+.topbar{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;padding:28px 5vw}
+.brand-mini{font-size:15px;letter-spacing:.08em;color:#f8e3c5}
+.languages{display:flex;gap:4px;padding:5px;border:1px solid rgba(255,255,255,.38);border-radius:30px;background:rgba(20,15,12,.38);backdrop-filter:blur(10px)}
+.lang{border:0;background:transparent;color:#fff;padding:9px 16px;border-radius:22px;font:inherit;font-size:13px;cursor:pointer}
+.lang.active{background:rgba(244,190,111,.22);color:#ffd99e}
+.hero{position:relative;z-index:2;min-height:780px;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px 20px 190px}
+.content{max-width:760px;text-shadow:0 2px 18px rgba(0,0,0,.55)}
+.book-mark{font-family:Georgia,serif;font-size:66px;color:#f4c17b;line-height:.8;margin-bottom:20px}
+.eyebrow{font-size:19px;color:#f6ddba;margin-bottom:12px}
+h1{font-size:clamp(62px,10vw,112px);line-height:1;margin:0 0 26px;font-weight:600;color:#ffe5bd;letter-spacing:-.04em}
+.lead{font-size:20px;line-height:2.05;color:#fff;margin:0 auto 30px}
+.actions{display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+.btn{min-width:250px;min-height:76px;border-radius:42px;padding:12px 25px;display:flex;align-items:center;justify-content:center;gap:14px;text-decoration:none;color:#fff;transition:.25s transform,.25s background,.25s box-shadow;backdrop-filter:blur(9px)}
+.btn:hover{transform:translateY(-3px)}
+.btn-primary{background:linear-gradient(135deg,#f2bd68,#d99b43);box-shadow:0 10px 35px rgba(0,0,0,.25)}
+.btn-outline{border:1px solid rgba(255,255,255,.7);background:rgba(16,13,11,.36)}
+.btn strong,.btn small{display:block;text-align:right}.btn strong{font-size:18px}.btn small{font-size:12px;margin-top:2px;color:#f8ead7}
+.telegram{font-size:27px;transform:rotate(-18deg)}
+.music{position:absolute;z-index:4;bottom:150px;left:50%;transform:translateX(-50%);width:min(560px,calc(100% - 36px));display:flex;align-items:center;gap:13px;padding:13px 17px;border-radius:42px;background:rgba(20,18,16,.86);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(15px);box-shadow:0 15px 40px rgba(0,0,0,.35)}
+.music-btn{width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.65);background:transparent;color:#fff;cursor:pointer;font-size:16px}
+.music-info{min-width:145px;text-align:right}.music-info strong,.music-info span{display:block}.music-info strong{font-size:13px}.music-info span{font-size:10px;color:#c9bba9;margin-top:2px}
+.music-line{height:3px;flex:1;background:#645b50;border-radius:4px;overflow:hidden}.music-line span{display:block;height:100%;width:0;background:#f3bd72}
+.music-note{font-size:23px;color:#eec080}
+footer{position:absolute;z-index:3;left:0;right:0;bottom:0;min-height:145px;text-align:center;padding:30px 30px 24px;background:linear-gradient(180deg,rgba(16,13,10,.65),#11100e 40%);border-radius:50% 50% 0 0/18% 18% 0 0}
+.footer-line{width:110px;height:1px;background:#e8b976;margin:0 auto 14px}
+footer p{margin:0;color:#f0d5ad;font-size:14px}.footer-items{display:flex;justify-content:center;gap:35px;margin-top:18px;color:#cdbb9f;font-size:11px}.love{position:absolute;right:6%;bottom:25px;color:#e7bd82;font-size:12px}
+.toast{position:fixed;z-index:20;bottom:25px;left:50%;transform:translate(-50%,20px);opacity:0;background:#201a14;color:#ffe2b6;padding:10px 17px;border-radius:25px;transition:.25s;font-size:12px;pointer-events:none}.toast.show{opacity:1;transform:translate(-50%,0)}
+[dir="ltr"] .btn strong,[dir="ltr"] .btn small{text-align:left}[dir="ltr"] .music-info{text-align:left}
+@media(max-width:700px){.topbar{padding:18px 16px}.brand-mini{display:none}.languages{margin:auto}.hero{min-height:730px;padding-bottom:180px}.eyebrow{font-size:15px}h1{font-size:64px}.lead{font-size:16px}.btn{min-width:calc(100vw - 52px);min-height:64px}.music{bottom:142px}.music-info{min-width:110px}.footer-items{gap:14px}.love{display:none}}
