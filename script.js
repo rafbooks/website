@@ -174,6 +174,8 @@ const translations = {
     btn_bot: "ربات تلگرام",
     btn_manager: "ارتباط با مدیر",
     play: "شنیدن از نشر رف",
+    eraser: "پاک‌کن",
+    clear: "پاک کردن همه",
     hint: "با قلم‌مو روی صفحه نقاشی کن • هر کلیک رنگ می‌پاشد",
     credit: "مدیریت نشر رف — دکتر کیوان خلیل‌نژاد",
     dir: "rtl",
@@ -189,6 +191,8 @@ const translations = {
     btn_bot: "Telegram Bot",
     btn_manager: "Contact Manager",
     play: "Listen to Raf",
+    eraser: "Eraser",
+    clear: "Clear All",
     hint: "Paint on the page with the brush • each click splatters color",
     credit: "Raf Publishing — Dr. Keyvan Khalilnejad",
     dir: "ltr",
@@ -204,6 +208,8 @@ const translations = {
     btn_bot: "بوت تليجرام",
     btn_manager: "التواصل مع المدير",
     play: "الاستماع إلى رف",
+    eraser: "ممحاة",
+    clear: "مسح الكل",
     hint: "ارسم على الصفحة بالفرشاة • كل نقرة ترش اللون",
     credit: "إدارة نشر رف — الدكتور كيوان خليل نجاد",
     dir: "rtl",
@@ -241,7 +247,6 @@ function setLanguage(lang) {
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.getAttribute("data-i18n");
     if (t[key]) {
-      // برای متن‌های چندخطی از innerText استفاده می‌کنیم تا \n حفظ بشه
       el.innerText = t[key];
     }
   });
