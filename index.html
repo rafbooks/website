@@ -8,10 +8,18 @@
 </head>
 <body>
 
-  <!-- بوم نقاشی تمام صفحه -->
-  <canvas id="drawCanvas"></canvas>
+  <!-- انتخاب زبان -->
+  <div class="lang-switcher">
+    <button class="lang-btn" id="langBtn">فارسی</button>
+    <div class="lang-menu" id="langMenu">
+      <button data-lang="fa">فارسی</button>
+      <button data-lang="en">English</button>
+      <button data-lang="ar">العربية</button>
+    </div>
+  </div>
 
-  <!-- افکت پاشیدن رنگ -->
+  <!-- بوم نقاشی -->
+  <canvas id="drawCanvas"></canvas>
   <canvas id="fxCanvas"></canvas>
 
   <div class="page">
@@ -30,30 +38,30 @@
     <!-- لوگو -->
     <div class="logo">
       <h1>نشر رف</h1>
-      <p>دفترهای طراحی و نقاشی</p>
+      <p data-i18n="subtitle">دفترهای طراحی و نقاشی</p>
     </div>
 
     <!-- متن اصلی -->
     <div class="hero">
-      <h2>دفترهایی برای دیدن، کشیدن و ماندن</h2>
-      <p>دفترهایی برای ثبت لحظه‌ها، تمرین خلاقیت و همراهی در مسیر ایده‌ها تا ماندگارترین شکل ممکن.</p>
+      <h2 data-i18n="title">دفترهایی برای دیدن، کشیدن و ماندن</h2>
+      <p data-i18n="desc">دفترهایی برای ثبت لحظه‌ها، تمرین خلاقیت و همراهی در مسیر ایده‌ها تا ماندگارترین شکل ممکن.</p>
     </div>
 
     <!-- دکمه‌ها -->
     <div class="buttons">
-      <a class="btn btn-channel" href="https://t.me/YOUR_CHANNEL" target="_blank">کانال تلگرام</a>
-      <a class="btn btn-bot" href="https://t.me/YOUR_BOT" target="_blank">ربات تلگرام</a>
-      <a class="btn btn-manager" href="https://wa.me/989102232299" target="_blank">ارتباط با مدیر</a>
+      <a class="btn btn-channel" href="https://t.me/YOUR_CHANNEL" target="_blank" data-i18n="btn_channel">کانال تلگرام</a>
+      <a class="btn btn-bot" href="https://t.me/YOUR_BOT" target="_blank" data-i18n="btn_bot">ربات تلگرام</a>
+      <a class="btn btn-manager" href="https://wa.me/989102232299" target="_blank" data-i18n="btn_manager">ارتباط با مدیر</a>
     </div>
 
     <!-- دکمه پخش صدا -->
     <button class="play-btn" id="playBtn">
       <span id="playIcon">▶</span>
-      <span>شنیدن از نشر رف</span>
+      <span data-i18n="play">شنیدن از نشر رف</span>
     </button>
     <audio id="rafAudio" src="assets/voice.mp3" preload="metadata"></audio>
 
-    <!-- پالت نقاشی + ابزار -->
+    <!-- پالت نقاشی -->
     <div class="paint-tools">
       <div class="palette">
         <div class="palette-body">
@@ -76,12 +84,12 @@
       </div>
     </div>
 
-    <p class="hint">با قلم‌مو روی صفحه نقاشی کن • هر کلیک رنگ می‌پاشد</p>
+    <p class="hint" data-i18n="hint">با قلم‌مو روی صفحه نقاشی کن • هر کلیک رنگ می‌پاشد</p>
 
   </div>
 
   <!-- امضای مدیر -->
-  <div class="manager-credit">
+  <div class="manager-credit" data-i18n="credit">
     مدیریت نشر رف — دکتر کیوان خلیل‌نژاد
   </div>
 
