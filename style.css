@@ -98,12 +98,30 @@ body {
 }
 
 .logo h1 {
-  font-size: 2.9rem;
+  font-size: 3.1rem;
   font-weight: 800;
-  background: linear-gradient(90deg, #e8a87c, #d4a5c5, #85c1e9);
+  background: linear-gradient(105deg, #e07a5f 0%, #c38d9e 40%, #5b9bd5 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  letter-spacing: -1px;
+  position: relative;
+  display: inline-block;
+}
+
+/* افکت نرم آبرنگی پشت لوگو */
+.logo h1::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 130%;
+  background: radial-gradient(ellipse at center, rgba(224, 122, 95, 0.18) 0%, rgba(91, 155, 213, 0.12) 50%, transparent 70%);
+  border-radius: 50%;
+  z-index: -1;
+  filter: blur(8px);
 }
 
 .logo p {
