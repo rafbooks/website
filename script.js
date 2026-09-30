@@ -7,17 +7,14 @@ function updateClock() {
   const now = new Date();
   const tehran = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Tehran" }));
 
-  // ساعت
   const h = String(tehran.getHours()).padStart(2, "0");
   const m = String(tehran.getMinutes()).padStart(2, "0");
   const s = String(tehran.getSeconds()).padStart(2, "0");
   document.getElementById("clockTime").textContent = toFa(`${h}:${m}:${s}`);
 
-  // تاریخ میلادی
-  const gDate = tehran.toLocaleDateString("en-CA"); // مثلا 2025-09-30
+  const gDate = tehran.toLocaleDateString("en-CA");
   document.getElementById("gregorianDate").textContent = gDate;
 
-  // تاریخ شمسی
   try {
     const jDate = new Intl.DateTimeFormat("fa-IR-u-ca-persian", {
       year: "numeric",
@@ -29,7 +26,6 @@ function updateClock() {
     document.getElementById("jalaliDate").textContent = "—";
   }
 }
-
 updateClock();
 setInterval(updateClock, 1000);
 
@@ -40,14 +36,19 @@ const playIcon = document.getElementById("playIcon");
 
 playBtn.addEventListener("click", () => {
   if (audio.paused) {
-    audio.play();
-    playIcon.textContent = "⏸";
+    const playPromise = audio.play();
+    if (playPromise !== undefined) {
+      playPromise
+        .then(() => { playIcon.textContent = "⏸"; })
+        .catch(() => {
+          alert("صدا پخش نشد. مطمئن شوید فایل assets/voice.mp3 وجود دارد.");
+        });
+    }
   } else {
     audio.pause();
     playIcon.textContent = "▶";
   }
 });
-
 audio.addEventListener("ended", () => {
   playIcon.textContent = "▶";
 });
@@ -72,7 +73,6 @@ function resize() {
 resize();
 window.addEventListener("resize", resize);
 
-// انتخاب رنگ
 document.querySelectorAll(".colors button").forEach(btn => {
   btn.addEventListener("click", () => {
     document.querySelectorAll(".colors button").forEach(b => b.classList.remove("active"));
@@ -84,19 +84,16 @@ document.querySelectorAll(".colors button").forEach(btn => {
   });
 });
 
-// دکمه پاک‌کن
 document.getElementById("eraserBtn").addEventListener("click", () => {
   isEraser = true;
   brush.textContent = "🧽";
   brush.style.fontSize = "26px";
 });
 
-// پاک کردن همه
 document.getElementById("clearBtn").addEventListener("click", () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 });
 
-// شروع نقاشی
 function startDraw(e) {
   drawing = true;
   const pos = getPos(e);
@@ -104,7 +101,6 @@ function startDraw(e) {
   ctx.moveTo(pos.x, pos.y);
   spawnParticles(pos.x, pos.y);
 }
-
 function draw(e) {
   if (!drawing) return;
   const pos = getPos(e);
@@ -116,16 +112,12 @@ function draw(e) {
   ctx.beginPath();
   ctx.moveTo(pos.x, pos.y);
 }
-
 function stopDraw() {
   drawing = false;
   ctx.beginPath();
 }
-
 function getPos(e) {
-  if (e.touches) {
-    return { x: e.touches[0].clientX, y: e.touches[0].clientY };
-  }
+  if (e.touches) return { x: e.touches[0].clientX, y: e.touches[0].clientY };
   return { x: e.clientX, y: e.clientY };
 }
 
@@ -133,19 +125,16 @@ canvas.addEventListener("mousedown", startDraw);
 canvas.addEventListener("mousemove", draw);
 canvas.addEventListener("mouseup", stopDraw);
 canvas.addEventListener("mouseout", stopDraw);
-
 canvas.addEventListener("touchstart", (e) => { e.preventDefault(); startDraw(e); }, { passive: false });
 canvas.addEventListener("touchmove", (e) => { e.preventDefault(); draw(e); }, { passive: false });
 canvas.addEventListener("touchend", stopDraw);
 
-// ===================== پاشیدن رنگ =====================
+// پاشیدن رنگ
 const particles = [];
-
 function spawnParticles(x, y) {
   for (let i = 0; i < 12; i++) {
     particles.push({
-      x,
-      y,
+      x, y,
       vx: (Math.random() - 0.5) * 8,
       vy: (Math.random() - 0.5) * 8,
       life: 1,
@@ -154,7 +143,6 @@ function spawnParticles(x, y) {
     });
   }
 }
-
 function animateParticles() {
   fxCtx.clearRect(0, 0, fxCanvas.width, fxCanvas.height);
   for (let i = particles.length - 1; i >= 0; i--) {
@@ -177,13 +165,88 @@ function animateParticles() {
 }
 animateParticles();
 
-// ===================== قلم‌مو / پاک‌کن موس =====================
+// قلم‌مو / پاک‌کن
 const brush = document.createElement("div");
 brush.className = "brush-cursor";
 brush.textContent = "🖌️";
 document.body.appendChild(brush);
-
 document.addEventListener("mousemove", (e) => {
   brush.style.left = e.clientX + "px";
   brush.style.top = e.clientY + "px";
 });
+
+// ===================== چندزبانه =====================
+const translations = {
+  fa: {
+    subtitle: "دفترهای طراحی و نقاشی",
+    title: "دفترهایی برای دیدن، کشیدن و ماندن",
+    desc: "دفترهایی برای ثبت لحظه‌ها، تمرین خلاقیت و همراهی در مسیر ایده‌ها تا ماندگارترین شکل ممکن.",
+    btn_channel: "کانال تلگرام",
+    btn_bot: "ربات تلگرام",
+    btn_manager: "ارتباط با مدیر",
+    play: "شنیدن از نشر رف",
+    hint: "با قلم‌مو روی صفحه نقاشی کن • هر کلیک رنگ می‌پاشد",
+    credit: "مدیریت نشر رف — دکتر کیوان خلیل‌نژاد",
+    dir: "rtl",
+    langName: "فارسی"
+  },
+  en: {
+    subtitle: "Design & Painting Notebooks",
+    title: "Notebooks for seeing, drawing and lasting",
+    desc: "Notebooks for capturing moments, practicing creativity, and walking with ideas until they take their most lasting form.",
+    btn_channel: "Telegram Channel",
+    btn_bot: "Telegram Bot",
+    btn_manager: "Contact Manager",
+    play: "Listen to Raf",
+    hint: "Paint on the page with the brush • each click splatters color",
+    credit: "Raf Publishing — Dr. Keyvan Khalilnejad",
+    dir: "ltr",
+    langName: "English"
+  },
+  ar: {
+    subtitle: "دفاتر التصميم والرسم",
+    title: "دفاتر للرؤية والرسم والبقاء",
+    desc: "دفاتر لتسجيل اللحظات، وممارسة الإبداع، ومرافقة الأفكار حتى تأخذ أكثر أشكالها ديمومة.",
+    btn_channel: "قناة تليجرام",
+    btn_bot: "بوت تليجرام",
+    btn_manager: "التواصل مع المدير",
+    play: "الاستماع إلى رف",
+    hint: "ارسم على الصفحة بالفرشاة • كل نقرة ترش اللون",
+    credit: "إدارة نشر رف — الدكتور كيوان خليل نجاد",
+    dir: "rtl",
+    langName: "العربية"
+  }
+};
+
+const langBtn = document.getElementById("langBtn");
+const langMenu = document.getElementById("langMenu");
+
+langBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  langMenu.classList.toggle("show");
+});
+document.addEventListener("click", () => {
+  langMenu.classList.remove("show");
+});
+langMenu.querySelectorAll("button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    setLanguage(btn.dataset.lang);
+    langMenu.classList.remove("show");
+  });
+});
+
+function setLanguage(lang) {
+  const t = translations[lang];
+  if (!t) return;
+  document.documentElement.lang = lang;
+  document.documentElement.dir = t.dir;
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (t[key]) el.textContent = t[key];
+  });
+  langBtn.textContent = t.langName;
+  localStorage.setItem("raf_lang", lang);
+}
+
+const savedLang = localStorage.getItem("raf_lang") || "fa";
+setLanguage(savedLang);
