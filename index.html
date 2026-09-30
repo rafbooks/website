@@ -1,15 +1,24 @@
+```html
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>نشر رف | دفترهای طراحی و نقاشی</title>
+
   <link rel="stylesheet" href="style.css">
+
+  <!-- آیکون سایت -->
+  <link rel="icon" type="image/png" href="assets/favicon.png">
 </head>
+
 <body>
+
   <!-- انتخاب زبان -->
   <div class="lang-switcher">
     <button class="lang-btn" id="langBtn">فارسی</button>
+
     <div class="lang-menu" id="langMenu">
       <button data-lang="fa">فارسی</button>
       <button data-lang="en">English</button>
@@ -22,14 +31,17 @@
   <canvas id="fxCanvas"></canvas>
 
   <div class="page">
+
     <!-- ساعت و تاریخ زنده -->
     <div class="clock-box">
       <div class="clock-time" id="clockTime">--:--:--</div>
+
       <div class="clock-dates">
         <span id="jalaliDate">—</span>
         <span class="sep">|</span>
         <span id="gregorianDate">—</span>
       </div>
+
       <div class="clock-label">تهران</div>
     </div>
 
@@ -42,18 +54,50 @@
     <!-- متن اصلی -->
     <div class="hero">
       <h2 data-i18n="title">دفترهایی برای دیدن، کشیدن و ماندن</h2>
-      <p data-i18n="desc">دفترهایی برای ثبت لحظه‌ها، تمرین خلاقیت و همراهی در مسیر ایده‌ها تا ماندگارترین شکل ممکن.</p>
+
+      <p data-i18n="desc">
+        دفترهایی برای ثبت لحظه‌ها، تمرین خلاقیت و همراهی در مسیر ایده‌ها تا ماندگارترین شکل ممکن.
+      </p>
     </div>
 
     <!-- دکمه‌ها -->
     <div class="buttons">
-      <a class="btn btn-channel" href="https://t.me/YOUR_CHANNEL" target="_blank" data-i18n="btn_channel">کانال تلگرام</a>
-      <a class="btn btn-bot" href="https://t.me/rafbooksbot" target="_blank" data-i18n="btn_bot">ربات تلگرام</a>
-      <a class="btn btn-manager" href="https://wa.me/989121455751" target="_blank" data-i18n="btn_manager">ارتباط با مدیر</a>
+
+      <a
+        class="btn btn-channel"
+        href="https://t.me/YOUR_CHANNEL"
+        target="_blank"
+        data-i18n="btn_channel"
+      >
+        کانال تلگرام
+      </a>
+
+      <a
+        class="btn btn-bot"
+        href="https://t.me/rafbooksbot"
+        target="_blank"
+        data-i18n="btn_bot"
+      >
+        ربات تلگرام
+      </a>
+
+      <a
+        class="btn btn-manager"
+        href="https://wa.me/989121455751"
+        target="_blank"
+        data-i18n="btn_manager"
+      >
+        ارتباط با مدیر
+      </a>
+
     </div>
 
     <!-- متن مانیفست -->
-    <div class="manifesto" data-i18n="manifesto" style="white-space: pre-line; margin: 2.5rem auto; max-width: 640px; line-height: 1.9; font-size: 0.98rem; opacity: 0.9;">
+    <div
+      class="manifesto"
+      data-i18n="manifesto"
+      style="white-space: pre-line; margin: 2.5rem auto; max-width: 640px; line-height: 1.9; font-size: 0.98rem; opacity: 0.9;"
+    >
       ما نسل تازه‌ایم.
       دیگر همه‌چیز قرار نیست پشت ویترین یک سایت بماند.
 
@@ -86,31 +130,100 @@
       <span id="playIcon">▶</span>
       <span data-i18n="play">شنیدن از نشر رف</span>
     </button>
-    <audio id="rafAudio" src="assets/voice.mp3" preload="metadata"></audio>
+
+    <audio
+      id="rafAudio"
+      src="assets/voice.mp3"
+      preload="metadata"
+    ></audio>
 
     <!-- پالت نقاشی -->
     <div class="paint-tools">
+
       <div class="palette">
         <div class="palette-body">
+
           <div class="colors" id="colors">
-            <button data-color="#e74c3c" style="background:#e74c3c" title="قرمز"></button>
-            <button data-color="#f39c12" style="background:#f39c12" title="نارنجی"></button>
-            <button data-color="#f1c40f" style="background:#f1c40f" title="زرد"></button>
-            <button data-color="#27ae60" style="background:#27ae60" title="سبز"></button>
-            <button data-color="#3498db" style="background:#3498db" title="آبی"></button>
-            <button data-color="#9b59b6" style="background:#9b59b6" title="بنفش"></button>
-            <button data-color="#e91e63" style="background:#e91e63" title="صورتی"></button>
-            <button data-color="#1a1a1a" style="background:#1a1a1a" title="مشکی"></button>
+
+            <button
+              data-color="#e74c3c"
+              style="background:#e74c3c"
+              title="قرمز"
+            ></button>
+
+            <button
+              data-color="#f39c12"
+              style="background:#f39c12"
+              title="نارنجی"
+            ></button>
+
+            <button
+              data-color="#f1c40f"
+              style="background:#f1c40f"
+              title="زرد"
+            ></button>
+
+            <button
+              data-color="#27ae60"
+              style="background:#27ae60"
+              title="سبز"
+            ></button>
+
+            <button
+              data-color="#3498db"
+              style="background:#3498db"
+              title="آبی"
+            ></button>
+
+            <button
+              data-color="#9b59b6"
+              style="background:#9b59b6"
+              title="بنفش"
+            ></button>
+
+            <button
+              data-color="#e91e63"
+              style="background:#e91e63"
+              title="صورتی"
+            ></button>
+
+            <button
+              data-color="#1a1a1a"
+              style="background:#1a1a1a"
+              title="مشکی"
+            ></button>
+
           </div>
+
         </div>
       </div>
+
       <div class="tool-buttons">
-        <button class="tool-btn" id="eraserBtn" data-i18n="eraser">پاک‌کن</button>
-        <button class="tool-btn" id="clearBtn" data-i18n="clear">پاک کردن همه</button>
+
+        <button
+          class="tool-btn"
+          id="eraserBtn"
+          data-i18n="eraser"
+        >
+          پاک‌کن
+        </button>
+
+        <button
+          class="tool-btn"
+          id="clearBtn"
+          data-i18n="clear"
+        >
+          پاک کردن همه
+        </button>
+
       </div>
+
     </div>
 
-    <p class="hint" data-i18n="hint">با قلم‌مو روی صفحه نقاشی کن • هر کلیک رنگ می‌پاشد</p>
+    <p class="hint" data-i18n="hint">
+      با قلم‌مو روی صفحه نقاشی کن • هر کلیک رنگ می‌پاشد
+    </p>
+
   </div>
 
   <!-- امضای مدیر -->
@@ -119,5 +232,7 @@
   </div>
 
   <script src="script.js"></script>
+
 </body>
 </html>
+```
