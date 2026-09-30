@@ -2,19 +2,15 @@
 function toFa(n) {
   return String(n).replace(/\d/g, d => "۰۱۲۳۴۵۶۷۸۹"[d]);
 }
-
 function updateClock() {
   const now = new Date();
   const tehran = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Tehran" }));
-
   const h = String(tehran.getHours()).padStart(2, "0");
   const m = String(tehran.getMinutes()).padStart(2, "0");
   const s = String(tehran.getSeconds()).padStart(2, "0");
   document.getElementById("clockTime").textContent = toFa(`${h}:${m}:${s}`);
-
   const gDate = tehran.toLocaleDateString("en-CA");
   document.getElementById("gregorianDate").textContent = gDate;
-
   try {
     const jDate = new Intl.DateTimeFormat("fa-IR-u-ca-persian", {
       year: "numeric",
@@ -33,7 +29,6 @@ setInterval(updateClock, 1000);
 const audio = document.getElementById("rafAudio");
 const playBtn = document.getElementById("playBtn");
 const playIcon = document.getElementById("playIcon");
-
 playBtn.addEventListener("click", () => {
   if (audio.paused) {
     const playPromise = audio.play();
@@ -58,12 +53,10 @@ const canvas = document.getElementById("drawCanvas");
 const ctx = canvas.getContext("2d");
 const fxCanvas = document.getElementById("fxCanvas");
 const fxCtx = fxCanvas.getContext("2d");
-
 let drawing = false;
 let currentColor = "#e74c3c";
 let isEraser = false;
 let brushSize = 4;
-
 function resize() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
@@ -72,7 +65,6 @@ function resize() {
 }
 resize();
 window.addEventListener("resize", resize);
-
 document.querySelectorAll(".colors button").forEach(btn => {
   btn.addEventListener("click", () => {
     document.querySelectorAll(".colors button").forEach(b => b.classList.remove("active"));
@@ -83,17 +75,14 @@ document.querySelectorAll(".colors button").forEach(btn => {
     brush.style.fontSize = "24px";
   });
 });
-
 document.getElementById("eraserBtn").addEventListener("click", () => {
   isEraser = true;
   brush.textContent = "🧽";
   brush.style.fontSize = "26px";
 });
-
 document.getElementById("clearBtn").addEventListener("click", () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 });
-
 function startDraw(e) {
   drawing = true;
   const pos = getPos(e);
@@ -120,7 +109,6 @@ function getPos(e) {
   if (e.touches) return { x: e.touches[0].clientX, y: e.touches[0].clientY };
   return { x: e.clientX, y: e.clientY };
 }
-
 canvas.addEventListener("mousedown", startDraw);
 canvas.addEventListener("mousemove", draw);
 canvas.addEventListener("mouseup", stopDraw);
@@ -188,7 +176,8 @@ const translations = {
     hint: "با قلم‌مو روی صفحه نقاشی کن • هر کلیک رنگ می‌پاشد",
     credit: "مدیریت نشر رف — دکتر کیوان خلیل‌نژاد",
     dir: "rtl",
-    langName: "فارسی"
+    langName: "فارسی",
+    whatsappMsg: "با سلام و احترام\nاز طریق وب‌سایت رسمی نشر رف (rafbooks.ir) با شما در ارتباط هستم.\nپیام بنده در خصوص محصولات دفتر طراحی و نقاشی می‌باشد."
   },
   en: {
     subtitle: "Design & Painting Notebooks",
@@ -201,7 +190,8 @@ const translations = {
     hint: "Paint on the page with the brush • each click splatters color",
     credit: "Raf Publishing — Dr. Keyvan Khalilnejad",
     dir: "ltr",
-    langName: "English"
+    langName: "English",
+    whatsappMsg: "Hello\nI am contacting you via the official website of Raf Publishing (rafbooks.ir).\nMy message is regarding your design and painting notebooks."
   },
   ar: {
     subtitle: "دفاتر التصميم والرسم",
@@ -214,7 +204,8 @@ const translations = {
     hint: "ارسم على الصفحة بالفرشاة • كل نقرة ترش اللون",
     credit: "إدارة نشر رف — الدكتور كيوان خليل نجاد",
     dir: "rtl",
-    langName: "العربية"
+    langName: "العربية",
+    whatsappMsg: "السلام عليكم ورحمة الله\nأتواصل معكم عبر الموقع الرسمي لنشر رف (rafbooks.ir).\nرسالتي بخصوص منتجات دفاتر التصميم والرسم."
   }
 };
 
@@ -225,9 +216,11 @@ langBtn.addEventListener("click", (e) => {
   e.stopPropagation();
   langMenu.classList.toggle("show");
 });
+
 document.addEventListener("click", () => {
   langMenu.classList.remove("show");
 });
+
 langMenu.querySelectorAll("button").forEach(btn => {
   btn.addEventListener("click", () => {
     setLanguage(btn.dataset.lang);
@@ -238,14 +231,25 @@ langMenu.querySelectorAll("button").forEach(btn => {
 function setLanguage(lang) {
   const t = translations[lang];
   if (!t) return;
+
   document.documentElement.lang = lang;
   document.documentElement.dir = t.dir;
+
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.getAttribute("data-i18n");
     if (t[key]) el.textContent = t[key];
   });
+
   langBtn.textContent = t.langName;
   localStorage.setItem("raf_lang", lang);
+
+  // آپدیت لینک واتساپ با پیام مناسب هر زبان
+  const managerBtn = document.querySelector(".btn-manager");
+  if (managerBtn) {
+    const phone = "989121455751";
+    const encodedMsg = encodeURIComponent(t.whatsappMsg);
+    managerBtn.href = `https://wa.me/${phone}?text=${encodedMsg}`;
+  }
 }
 
 const savedLang = localStorage.getItem("raf_lang") || "fa";
